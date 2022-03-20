@@ -1,7 +1,9 @@
 .contentWrapper {
-  color: red;
-
-  h1 {
-    color: green;
-  }
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 453px;
+  column-gap: 12rem;
+  margin: 0 auto;
+  height: 100vh;
+  max-width: 120rem;
 }

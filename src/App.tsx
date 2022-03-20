@@ -1,9 +1,15 @@
+import React from 'react'
+
 import styles from './assets/styles/app.module.scss'
+
+import { LoginBox } from './components/LoginBox'
+import { MessageList } from './components/MessageList'
 
 function App () {
   return (
     <main className={styles.contentWrapper}>
-      <h1>Hello World</h1>
+      <MessageList />
+      <LoginBox />
     </main>
   )
 }
