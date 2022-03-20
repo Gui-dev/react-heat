@@ -26,9 +26,9 @@
         "no-unused-vars": "warn",
         "no-useless-return": "off",
         "no-case-declarations": "off",
+        "no-use-before-define": "off",
         "camelcase": "off",
         "react/prop-types": "off",
-        "react/react-in-jsx-scope": "on",
         "@typescript-eslint/explicit-module-boundary-types": "off"
     }
 }
