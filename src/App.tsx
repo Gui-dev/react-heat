@@ -2,18 +2,21 @@ import React from 'react'
 
 import styles from './assets/styles/app.module.scss'
 
-import { AuthProvider } from './contexts/auth'
 import { LoginBox } from './components/LoginBox'
 import { MessageList } from './components/MessageList'
+import { SendMessageForm } from './components/SendMessageForm'
+import { useAuth } from './hooks/useAuth'
 
 function App () {
+  const { user } = useAuth()
+
   return (
-    <AuthProvider>
-      <main className={styles.contentWrapper}>
-        <MessageList />
-        <LoginBox />
-      </main>
-    </AuthProvider>
+    <main className={styles.contentWrapper}>
+      <MessageList />
+      {
+        user ? <SendMessageForm /> : <LoginBox />
+      }
+    </main>
   )
 }
 
