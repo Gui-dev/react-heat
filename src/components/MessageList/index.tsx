@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import io from 'socket.io-client'
 
 import styles from './message-list.module.scss'
 import logoImg from './../../assets/images/logo.svg'
 import { api } from './../../services/api'
 
-interface MessagesProps {
+interface MessageProps {
   id: string
   text: string
   created_at: string
@@ -17,8 +18,30 @@ interface MessagesProps {
   }
 }
 
+const messageQueue: MessageProps[] = []
+
+const socket = io('http://localhost:3333')
+
+socket.on('new_message', (message: MessageProps) => {
+  messageQueue.push(message)
+})
+
 export const MessageList: React.FC = () => {
-  const [messages, setMessages] = useState<MessagesProps[]>([])
+  const [messages, setMessages] = useState<MessageProps[]>([])
+
+  useEffect(() => {
+    setInterval(() => {
+      if (messageQueue.length > 0) {
+        setMessages(prevState => [
+          messageQueue[0],
+          prevState[0],
+          prevState[1]
+        ].filter(Boolean))
+
+        messageQueue.shift()
+      }
+    }, 3000)
+  }, [])
 
   useEffect(() => {
     api.get('/messages/last-messages')
