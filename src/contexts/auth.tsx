@@ -13,12 +13,10 @@ interface AuthProviderProps {
 }
 
 type User = {
-  user: {
-    id: string
-    name: string
-    login: string
-    avatar_url: string
-  }
+  id: string
+  name: string
+  login: string
+  avatar_url: string
 }
 
 type AuthResponse = {
@@ -49,7 +47,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const { user, userToken } = response.data
 
     localStorage.setItem('@dowhile:userToken', userToken)
-
+    api.defaults.headers.common.authorization = `Bearer ${userToken}`
     setUser(user)
   }
 
