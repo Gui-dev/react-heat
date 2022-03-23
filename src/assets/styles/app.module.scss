@@ -7,3 +7,14 @@
   height: 100vh;
   max-width: 120rem;
 }
+
+.contentSigned::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20rem;
+  height: 100vh;
+  width: 42rem;
+  background: url(./../images/background.svg) no-repeat;
+  background-size: cover;
+}
