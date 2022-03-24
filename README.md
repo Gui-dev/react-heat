@@ -1,6 +1,4 @@
-# NLW-Heat-React
-
-## NLW - Heat - Rocketseat
+<h1 align="center">React Heat</h1>
 
 Aplicação para o envio de mensagens :)
 
@@ -21,7 +19,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Sass](https://sass-lang.com/)
 - [Prisma](https://www.prisma.io/)
 - [Socket.io](https://socket.io/)
-- [OAuth - Github](https://oauth2.com/)
+- [OAuth - Github](https://www.oauth.com/)
 
 ## Projeto
 
